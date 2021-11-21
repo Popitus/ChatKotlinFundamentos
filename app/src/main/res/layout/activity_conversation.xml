@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".conversation.ConversationActivity"
+    >
+
+    <TextView
+        android:id="@+id/emptyTextView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Vista sin mensajes. Por favor escribe algo"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="80dp"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/conversation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvMessage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/view_message" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/conversationSent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvMessage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/view_message_send" />
+
+        <EditText
+            android:id="@+id/tvMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="12dp"
+            android:hint="Write your message"
+            android:gravity="start"
+            android:background="@drawable/round_message_composer"
+            app:layout_constraintWidth_min="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/sendButton"
+            />
+
+        <ImageView
+            android:id="@+id/sendButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="12dp"
+            android:src="@android:drawable/ic_menu_send"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMessage"
+            app:layout_constraintTop_toTopOf="@+id/tvMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription"
+            />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+        <FrameLayout
+        android:id="@+id/containerLoadView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <include
+        android:id="@+id/viewLoading"
+        layout="@layout/view_loading"
+        android:visibility="gone" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
